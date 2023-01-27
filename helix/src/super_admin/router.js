@@ -2,12 +2,22 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import EditTenant from "./EditTenant";
 import LandingPage from "./landingPage";
+import Tenants from "./Tenants";
 
 const router = createBrowserRouter([
     {
-        path: "/*",
+        path: "/",
         element: <LandingPage />,
+    },
+    {
+        path: "/tenants",
+        element: <Tenants />,
+    },
+    {
+        path: "/tenants/:id",
+        element: <EditTenant />,
     },
 ]);
 

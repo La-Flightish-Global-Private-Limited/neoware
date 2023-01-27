@@ -1,0 +1,30 @@
+.suspendButton{
+    float:right;
+    border:1px solid #009A44;
+    margin-right:10px;
+    padding-right:10px;
+    padding-left:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height: 38px;
+    cursor: pointer;
+
+    p{
+        color: #009A44;
+    }
+   
+}
+
+.MuiButtonBase-root {
+    text-transform: capitalize !important;
+}
+
+.suspendButton:hover{
+    background-color: #009A44;
+
+    p{
+        color: white;
+    }
+}
