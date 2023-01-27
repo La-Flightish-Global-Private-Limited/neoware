@@ -1,5 +1,9 @@
-# Getting Started with Create React App
+## Tasks
 
+### 25-01-2023 super admin landing page, list of tenant page and integrate with redux, axios and router
+### 27-01-2023 super admin tenant profile edit view and API dot net setup on local
+
+# Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
