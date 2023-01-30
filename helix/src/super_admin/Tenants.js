@@ -6,10 +6,12 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import TenantCard from "./components/TenantCard";
 import Footer from './components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export default function Tenants() {
     const [tenants, setTenants] = useState([])
     const tenantService = new TenantService()
+    const navigate = useNavigate()
     useEffect(() => {
         tenantService.getTenants().then(res => setTenants(res.data)).catch(error => console.log("error", error))
     }, [])
@@ -20,8 +22,8 @@ export default function Tenants() {
                 <BreadCrumb links={[{name:"Home",path:'/'},{name:"Tenants",path:"/tenants"}]} />
             </div>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 20, marginLeft: 10, marginRight: 10, marginBottom: 10, flexWrap: "wrap" }}>
-                <SearchBar style={{ flex: 1, maxWidth: 807 }} />
-                <div style={{ flex: 1, maxWidth: "124px", height: "38px", backgroundColor: "#009A44", borderRadius: 3, alignItems: "center", justifyContent: "center", display: "flex" }}>
+                <SearchBar style={{ flex: 1, maxWidth: 807,marginRight:10 }} />
+                <div onClick={()=>navigate('/tenants/add')} style={{ flex: 1, maxWidth: "124px", height: "38px", backgroundColor: "#009A44", borderRadius: 3, alignItems: "center", justifyContent: "center", display: "flex",cursor:"pointer" }}>
                     <p style={{ color: "white", textAlign: "center" }}><span>+</span> Add new</p>
                 </div>
             </div>

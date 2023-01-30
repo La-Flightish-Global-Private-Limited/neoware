@@ -57,6 +57,12 @@ textarea:focus, input:focus{
     margin-left: 10px;
 }
 
+@media (max-width: 600px) {
+    .profileData {
+        display: none;
+    }
+}
+
 .icon {
     margin-right: 10px;
 }

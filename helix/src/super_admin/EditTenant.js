@@ -5,10 +5,11 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
+import Modal from '@mui/material/Modal';
 import React from 'react';
 import Footer from './components/Footer';
 import ProfileTab from './components/ProfileTab';
+import AccessControlTab from './components/AccessControlTab';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -38,9 +39,33 @@ function a11yProps(index) {
 
 export default function EditTenant() {
     const [value, setValue] = React.useState(0);
+    const [suspend, setSuspend] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        // width: 400,
+        bgcolor: 'background.paper',
+        // border: '2px solid #000',
+        border: '0px none #000 !important'
+        // boxShadow: 24,
+        // p: 4,
+    };
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const onYes = () => {
+        onNo()
+        setSuspend(true)
+    }
+
+    const onNo = () => {
+        setOpen(false)
+    }
     return <>
         <Header />
         <div style={{ marginTop: 20, marginLeft: 20, marginRight: 20, marginBottom: 10 }}>
@@ -50,28 +75,53 @@ export default function EditTenant() {
             display: "flex",
             flexDirection: "column",
             // margin: "60px"
-            marginLeft:20,
-            marginRight:20
+            marginLeft: 20,
+            marginRight: 20
         }}>
-            <div className='suspendButton' >
-                <p>Suspend Tenant</p>
+            <div onClick={() => { suspend ? setSuspend(false) : setOpen(true) }} className='suspendButton' >
+                <p>{suspend ? "Reinstate Tenant" : "Suspend Tenant"}</p>
             </div>
             <div style={{ backgroundColor: "white", borderRadius: 3 }}>
                 <div style={{ borderBottomWidth: 1, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderStyle: "solid", borderColor: '#B2B4B2' }}>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <Tab label="Profile" {...a11yProps(0)} />
-                        <Tab label="Access Control" {...a11yProps(1)} />
+                        <Tab disabled={suspend} label="Profile" {...a11yProps(0)} />
+                        <Tab disabled={suspend} label="Access Control" {...a11yProps(1)} />
                     </Tabs>
                 </div>
 
                 <TabPanel value={value} index={0}>
-                    <ProfileTab />
+                    <ProfileTab disabled={suspend} />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    Item Two
+                    <AccessControlTab />
                 </TabPanel>
             </div>
         </div>
+
+        <Modal
+            open={open}
+            onClose={() => setOpen(false)}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Box sx={style}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 20 }}>
+                    <p style={{ textAlign: "center", fontWeight: "bold" }}>Suspend Tenant</p>
+                    <p style={{ textAlign: "center", width: "80%" }}>You are about to suspend the tenant.
+                        This will disable all users of the tenant, they cant
+                        be reinstated until the tenant is reinstated
+                        Do you want to proceed?</p>
+                </div>
+                <div style={{ margin: "auto", display: "flex" }}>
+                    <div onClick={onNo} style={{ width: "50%", backgroundColor: "#ECECEC", cursor: "pointer" }}>
+                        <p style={{ textAlign: "center" }}>No</p>
+                    </div>
+                    <div onClick={onYes} style={{ backgroundColor: "#009A44", width: "50%", cursor: "pointer" }}>
+                        <p style={{ color: "white", textAlign: "center" }}>Yes</p>
+                    </div>
+                </div>
+            </Box>
+        </Modal>
 
 
         <Footer />

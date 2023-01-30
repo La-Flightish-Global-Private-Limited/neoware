@@ -4,11 +4,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-export default function ProfileTab() {
+export default function ProfileTab(props) {
     const [edit, setEdit] = useState(false)
     const [open, setOpen] = useState(false)
-    const [name, setName] = useState('test')
-    const [server, setServer] = useState('test')
+    const [name, setName] = useState(props.add ? '' : 'test')
+    const [server, setServer] = useState(props.add ? '' : 'test')
+    const [add,setAdd] = useState(props.add)
+    const [submit,setSubmit] = useState(false)
     const style = {
         position: 'absolute',
         top: '50%',
@@ -30,22 +32,37 @@ export default function ProfileTab() {
     const onNo = () => {
         setOpen(false)
     }
+
+    const onSave = () => {
+        setSubmit(true)
+        if(name.trim() && server.trim()){
+            props.onSave()
+            setAdd(false)
+        }
+    }
     return (
         <>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-                {!edit ?
-                    <div onClick={() => setOpen(true)} className="profileEdit">
-                        <p>Edit</p>
-                    </div>
-                    :
-                    <>
-                        <div onClick={() => setEdit(false)} className="profileCancel">
-                            <p>Cancel</p>
-                        </div>
-                        <div onClick={() => setOpen(true)} className="profileEdit">
+                {
+                    add ?
+                        <div onClick={() => onSave()} className="profileEdit">
                             <p>Save</p>
                         </div>
-                    </>
+                        :
+
+                        !props.disabled && (!edit ?
+                            <div onClick={() => setOpen(true)} className="profileEdit">
+                                <p>Edit</p>
+                            </div>
+                            :
+                            <>
+                                <div onClick={() => setEdit(false)} className="profileCancel">
+                                    <p>Cancel</p>
+                                </div>
+                                <div onClick={() => setEdit(false)} className="profileEdit">
+                                    <p>Save</p>
+                                </div>
+                            </>)
                 }
             </div>
             <Modal
@@ -70,13 +87,28 @@ export default function ProfileTab() {
                 </Box>
             </Modal>
             <div className="inputContainer">
-                <div>
+        
+                <div style={{maxWidth: "335px"}}>
                     <p>Tenant Name</p>
-                    <input value={name} disabled={!edit} />
+                    <input
+                        value={name}
+                        placeholder="Name"
+                        onChange={(event) => setName(event.target.value)}
+                        disabled={!add && (props.disabled || !edit)}
+                        className={`${(submit && !name) ? 'error' : ''}`}
+                    />
+                    {submit && !name && <p style={{margin:10,color:"red",fontSize:12}}>Name is required.</p>}
                 </div>
-                <div>
+                <div style={{maxWidth: "335px"}}>
                     <p>Server</p>
-                    <input value={server} disabled={!edit} />
+                    <input
+                        value={server}
+                        placeholder="Server"
+                        onChange={(event) => setServer(event.target.value)}
+                        disabled={!add && (props.disabled || !edit)}
+                        className={`${(submit && !server) ? 'error' : ''}`}
+                    />
+                    {submit && !server && <p style={{margin:10,color:"red",fontSize:12}}>Server is required.</p>}
                 </div>
             </div>
         </>
