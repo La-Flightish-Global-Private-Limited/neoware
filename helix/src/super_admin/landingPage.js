@@ -1,14 +1,13 @@
 import './components/stylesheets/landingPage.scss';
-import Header from "./components/Header";
 import Tenant from "../components/assets/icons/tenant.svg"
-import Footer from './components/Footer';
+import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 export default function LandingPage() {
     const navigate = useNavigate()
     return (
         <div className="landingPageContainer">
-            <Header />
             <div style={{ backgroundColor: "white", marginRight: 10, marginLeft: 10, marginTop: 20, borderRadius: 10, paddingTop: 5, paddingBottom: 5, paddingLeft: 10, borderLeft: "10px solid #009A44" }}>
                 <div style={{ marginLeft: 10 }}>
                     <h1 style={{ fontSize: 20,lineHeight:1 }}>Welcome, Pankit patel</h1>
@@ -34,7 +33,6 @@ export default function LandingPage() {
                     <p style={{fontSize:20,fontWeight:"bold"}}>Tenants</p>
                     <p style={{fontSize:12,color:"#707372"}}>Tenants profile creation and access control</p>
             </div>
-            <Footer />
         </div>
     )
 }

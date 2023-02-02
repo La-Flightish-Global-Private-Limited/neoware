@@ -1,11 +1,10 @@
 import "./stylesheets/header.scss";
-import "../../components/assets/fonts/GothamLight.ttf";
-import "../../components/assets/fonts/GothamMedium.ttf";
-import "../../components/assets/fonts/GothamBold.ttf";
-import userSwitch from "../../components/assets/icons/user_switch.png"
-import help from "../../components/assets/icons/help.png"
-import userIcon from "../../components/assets/icons/user_icon.png"
-import downArrow from "../../components/assets/icons/down_arrow.png"
+import "./assets/fonts/GothamLight.ttf";
+import "./assets/fonts/GothamBold.ttf";
+import userSwitch from "./assets/icons/user_switch.png"
+import help from "./assets/icons/help.png"
+import userIcon from "./assets/icons/user_icon.png"
+import downArrow from "./assets/icons/down_arrow.png"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import React from "react"

@@ -33,7 +33,7 @@ export default function AccessControlTab(props) {
     const renderEmail = (item) => {
         return (
             <div key={item.id} className="email">
-                <p style={{ margin: 0 }}>{item.email}</p>
+                <p style={{ margin: 0,lineHeight:1 }}>{item.email}</p>
                 <p className="delete">Delete</p>
             </div>
         )
@@ -42,15 +42,15 @@ export default function AccessControlTab(props) {
         <div className="acContainer">
             <p>Enter Administrator Email</p>
             <div className="acInputContainer">
-                <input type={"email"} />
+                <input type={"email"} placeholder="Email" />
                 <div className="addNew">
-                    <p style={{ color: "white", textAlign: "center" }}><span>+</span> Add new</p>
+                    <p style={{ color: "white", textAlign: "center",lineHeight:1 }}><span>+</span> Add new</p>
                 </div>
             </div>
             {emails.length !== 0 &&
                 <div className="acEmailContainer">
                     <div style={{ padding: 10, backgroundColor: "#005EB8" }}>
-                        <p style={{ color: "white", margin: 0 }}>Active Administrator List</p>
+                        <p style={{ color: "white", margin: 0,lineHeight:1 }}>Active Administrator List</p>
                     </div>
                     <div className="acEmailSubContainer">
                         {emails.map((email) => renderEmail(email))}

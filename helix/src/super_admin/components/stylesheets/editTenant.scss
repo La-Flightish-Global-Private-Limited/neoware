@@ -5,7 +5,6 @@
     // margin-right:10px;
     padding-right: 10px;
     padding-left: 10px;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
@@ -16,6 +15,7 @@
 
     p {
         color: #009A44;
+        line-height: 1;
     }
 
 }
@@ -39,7 +39,6 @@
     margin-right: 10px;
     padding-right: 10px;
     padding-left: 10px;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: #009A44;
@@ -49,6 +48,7 @@
 
     p {
         color: #ffff;
+        line-height: 1;
     }
 
 
@@ -61,7 +61,6 @@
     margin-right: 10px;
     padding-right: 10px;
     padding-left: 10px;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
@@ -71,6 +70,7 @@
 
     p {
         color: #009A44;
+        line-height: 1;
     }
 
 
@@ -98,7 +98,7 @@
     border-radius: 3px;
     
     .acEmailSubContainer{
-        max-height: 180px;
+        max-height: 110px;
         overflow-y: scroll;
         border-bottom: 1px solid #B2B4B2;
     }
@@ -139,6 +139,13 @@
         margin-right: 10px;
     }
 
+    @media (max-width: 480px) {
+        input {
+            // width: 50%;
+            width: auto;
+        }
+    }
+
     .addNew {
         flex: 1;
         max-width: 124px;
@@ -147,7 +154,6 @@
         border-radius: 3px;
         align-items: center;
         justify-content: center;
-        display: flex;
         cursor: pointer;
     }
 
@@ -161,15 +167,16 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     margin-right: 10px;
     margin-left: 10px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    line-height: 1;
 
     input {
         padding: 10px;
         width: 80%;
         border: 1px solid #B2B4B2;
         border-radius: 3px;
-
-
     }
 
     .error{
@@ -180,9 +187,10 @@
         color: #B2B4B2;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 330px) {
         input {
             // width: 50%;
+            width: 200px;
         }
     }
 }

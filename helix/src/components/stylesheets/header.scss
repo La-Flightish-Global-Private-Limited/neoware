@@ -1,17 +1,24 @@
+html, body, #root {
+  height: 100%;
+}
+#root {
+ display: flex;
+ flex-direction: column;
+}
 body{
     background-color: #E3E9E9;
-    // font-family: 'Gotham';
+    font-family: 'Gotham' !important;
 }
 @font-face {
   font-family: 'Gotham';
-  src: local('Gotham'), url("../../../components/assets/fonts/GothamLight.ttf") format("truetype");
+  src: local('Gotham'), url("../assets/fonts/GothamLight.ttf") format("truetype");
   /* other formats include: 'woff2', 'truetype, 'opentype',
                             'embedded-opentype', and 'svg' */
 }
 
 @font-face {
     font-family: 'GothamBold';
-    src: local('GothamBold'), url("../../../components/assets/fonts/GothamBold.ttf") format("truetype");
+    src: local('GothamBold'), url("../assets/fonts/GothamBold.ttf") format("truetype");
     /* other formats include: 'woff2', 'truetype, 'opentype',
                               'embedded-opentype', and 'svg' */
     font-weight: bold;

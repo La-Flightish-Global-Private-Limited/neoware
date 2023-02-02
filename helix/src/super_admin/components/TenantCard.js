@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 const TenantCard = (props) => {
     const navigate = useNavigate()
     return (
-        <div onClick={()=>navigate('/tenants/'+props.tenant.id)} className='tenantContainer'>
+        <div onClick={()=>navigate('/tenants/'+props.tenant.tenanT_KEY)} className='tenantContainer'>
             <div className='nameBox'>
-                <p className='nameBoxLetter'>{props.tenant.name[0]}</p>
+                <p className='nameBoxLetter'>{props.tenant.tenanT_NM[0]}</p>
             </div>
-            <p>{props.tenant.name}</p>
+            <p>{props.tenant.tenanT_NM}</p>
             <div className='roundedIcon'>
                 <img src={RightArrow} />
             </div>

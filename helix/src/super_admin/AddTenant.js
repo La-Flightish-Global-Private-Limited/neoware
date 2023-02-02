@@ -1,10 +1,8 @@
 import './components/stylesheets/editTenant.scss';
 import BreadCrumb from "./components/BreadCrumb";
-import Header from "./components/Header";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import React, { useState } from 'react';
-import Footer from './components/Footer';
 import ProfileTab from './components/ProfileTab';
 import AccessControlTab from './components/AccessControlTab';
 
@@ -51,7 +49,6 @@ export default function AddTenant() {
 
    
     return <>
-        <Header />
         <div style={{ marginTop: 20, marginLeft: 20, marginRight: 20, marginBottom: 10 }}>
             <BreadCrumb links={[{ name: "Home", path: '/' }, { name: "Tenants", path: "/tenants" }, { name: "Add New Tenant", path: "/add" }]} />
         </div>
@@ -79,10 +76,5 @@ export default function AddTenant() {
                 </TabPanel>
             </div>
         </div>
-
-
-
-        <Footer />
-
     </>
 }

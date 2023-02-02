@@ -74,14 +74,14 @@ export default function ProfileTab(props) {
                 <Box sx={style}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 20 }}>
                         <p style={{ textAlign: "center", fontWeight: "bold" }}>Edit Tenant Profile</p>
-                        <p style={{ textAlign: "center", width: "80%" }}>You are about to edit the details of tenant. Do you want to proceed?</p>
+                        <p style={{ textAlign: "center", width: "80%",lineHeight:1 }}>You are about to edit the details of tenant. Do you want to proceed?</p>
                     </div>
                     <div style={{ margin: "auto", display: "flex" }}>
-                        <div onClick={onNo} style={{ width: "50%", backgroundColor: "#ECECEC", cursor: "pointer" }}>
-                            <p style={{ textAlign: "center" }}>No</p>
+                        <div onClick={onYes} style={{  backgroundColor: "#ECECEC", width: "50%", cursor: "pointer" }}>
+                            <p style={{ textAlign: "center",lineHeight:1 }}>Yes</p>
                         </div>
-                        <div onClick={onYes} style={{ backgroundColor: "#009A44", width: "50%", cursor: "pointer" }}>
-                            <p style={{ color: "white", textAlign: "center" }}>Yes</p>
+                        <div onClick={onNo} style={{ width: "50%",backgroundColor: "#009A44",  cursor: "pointer" }}>
+                            <p style={{ color: "white", textAlign: "center",lineHeight:1 }}>No</p>
                         </div>
                     </div>
                 </Box>
@@ -89,7 +89,7 @@ export default function ProfileTab(props) {
             <div className="inputContainer">
         
                 <div style={{maxWidth: "335px"}}>
-                    <p>Tenant Name</p>
+                    <p style={{fontSize:16}}>Tenant Name</p>
                     <input
                         value={name}
                         placeholder="Name"

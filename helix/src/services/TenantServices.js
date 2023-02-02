@@ -5,7 +5,7 @@ export class TenantService {
     }
 
     getTenants() {
-        return server.get('/data/tenants.json')
+        return server.get('/api/GetTenant')
             .then((res) => res)
             .then((d) => d.data);
     }

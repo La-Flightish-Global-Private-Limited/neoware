@@ -21,12 +21,12 @@ export default function BreadCrumb(props) {
     props.links.map((link,index) => {
       if(props.links.length === index + 1) {
         arr.push(<Typography key={index.toString()} color="blue">
-        {link.name}
+        <p style={{fontFamily:"Gotham",marginTop:25}}>{link.name}</p>
       </Typography>)
       }
       else{
         arr.push(<Link underline="hover" key={index.toString()} color="inherit" href={link.path}  onClick={(event)=>handleClick(event,link)}>
-        {link.name}
+        <p style={{fontFamily:"Gotham",marginTop:25}}>{link.name}</p>
       </Link>)
       }
     } )

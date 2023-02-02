@@ -1,13 +1,11 @@
 import './components/stylesheets/editTenant.scss';
 import BreadCrumb from "./components/BreadCrumb";
-import Header from "./components/Header";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import React from 'react';
-import Footer from './components/Footer';
 import ProfileTab from './components/ProfileTab';
 import AccessControlTab from './components/AccessControlTab';
 
@@ -23,7 +21,8 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <div style={{ padding: 10 }}>{children}</div>
+                <div style={{ paddingRight:10,
+                    paddingLeft: 10 }}>{children}</div>
             )}
         </div>
     );
@@ -39,7 +38,7 @@ function a11yProps(index) {
 
 export default function EditTenant() {
     const [value, setValue] = React.useState(0);
-    const [suspend, setSuspend] = React.useState(true);
+    const [suspend, setSuspend] = React.useState(false);
     const [open, setOpen] = React.useState(false);
     const style = {
         position: 'absolute',
@@ -61,13 +60,13 @@ export default function EditTenant() {
     const onYes = () => {
         onNo()
         setSuspend(true)
+        setValue(0);
     }
 
     const onNo = () => {
         setOpen(false)
     }
     return <>
-        <Header />
         <div style={{ marginTop: 20, marginLeft: 20, marginRight: 20, marginBottom: 10 }}>
             <BreadCrumb links={[{ name: "Home", path: '/' }, { name: "Tenants", path: "/tenants" }, { name: "Bon Secours Mercy Health", path: "/tenants" }]} />
         </div>
@@ -84,8 +83,8 @@ export default function EditTenant() {
             <div style={{ backgroundColor: "white", borderRadius: 3 }}>
                 <div style={{ borderBottomWidth: 1, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderStyle: "solid", borderColor: '#B2B4B2' }}>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <Tab disabled={suspend} label="Profile" {...a11yProps(0)} />
-                        <Tab disabled={suspend} label="Access Control" {...a11yProps(1)} />
+                        <Tab disabled={suspend} label={<span style={{fontFamily:"Gotham"}}>Profile</span>} {...a11yProps(0)} />
+                        <Tab disabled={suspend} label={<span style={{fontFamily:"Gotham"}}>Access Control</span>} {...a11yProps(1)} />
                     </Tabs>
                 </div>
 
@@ -107,24 +106,23 @@ export default function EditTenant() {
             <Box sx={style}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 20 }}>
                     <p style={{ textAlign: "center", fontWeight: "bold" }}>Suspend Tenant</p>
-                    <p style={{ textAlign: "center", width: "80%" }}>You are about to suspend the tenant.
+                    <p style={{ textAlign: "center", width: "80%",lineHeight:1 }}>You are about to suspend the tenant.
                         This will disable all users of the tenant, they cant
                         be reinstated until the tenant is reinstated
                         Do you want to proceed?</p>
                 </div>
                 <div style={{ margin: "auto", display: "flex" }}>
-                    <div onClick={onNo} style={{ width: "50%", backgroundColor: "#ECECEC", cursor: "pointer" }}>
-                        <p style={{ textAlign: "center" }}>No</p>
+                    <div onClick={onYes} style={{ backgroundColor: "#ECECEC", width: "50%", cursor: "pointer" }}>
+                        <p style={{ textAlign: "center",lineHeight:1 }}>Yes</p>
                     </div>
-                    <div onClick={onYes} style={{ backgroundColor: "#009A44", width: "50%", cursor: "pointer" }}>
-                        <p style={{ color: "white", textAlign: "center" }}>Yes</p>
+                    <div onClick={onNo} style={{ width: "50%",backgroundColor: "#009A44",  cursor: "pointer" }}>
+                        <p style={{ color: "white", textAlign: "center",lineHeight:1 }}>No</p>
                     </div>
                 </div>
             </Box>
         </Modal>
 
 
-        <Footer />
 
     </>
 }
