@@ -7,22 +7,30 @@ html, body, #root {
 }
 body{
     background-color: #E3E9E9;
-    font-family: 'Gotham' !important;
-}
-@font-face {
-  font-family: 'Gotham';
-  src: local('Gotham'), url("../assets/fonts/GothamLight.ttf") format("truetype");
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
+    font-family: 'gotham' !important;
 }
 
 @font-face {
-    font-family: 'GothamBold';
-    src: local('GothamBold'), url("../assets/fonts/GothamBold.ttf") format("truetype");
-    /* other formats include: 'woff2', 'truetype, 'opentype',
-                              'embedded-opentype', and 'svg' */
-    font-weight: bold;
+    font-family: "gotham";
+    src: url('../assets/fonts/Gotham-Book.woff') format('woff'),
+         url('../assets/fonts/Gotham-Book.woff2') format('woff2'),
+         url('../assets/fonts/Gotham-Book.ttf') format('truetype');
+    font-weight: normal;
   }
+// @font-face {
+//   font-family: 'Gotham';
+//   src: local('Gotham'), url("../assets/fonts/GothamLight.ttf") format("truetype");
+//   /* other formats include: 'woff2', 'truetype, 'opentype',
+//                             'embedded-opentype', and 'svg' */
+// }
+
+// @font-face {
+//     font-family: 'GothamBold';
+//     src: local('GothamBold'), url("../assets/fonts/GothamBold.ttf") format("truetype");
+//     /* other formats include: 'woff2', 'truetype, 'opentype',
+//                               'embedded-opentype', and 'svg' */
+//     font-weight: bold;
+//   }
 
 textarea:focus, input:focus{
     outline: none;

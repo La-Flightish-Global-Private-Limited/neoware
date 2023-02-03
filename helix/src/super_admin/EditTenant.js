@@ -106,7 +106,7 @@ export default function EditTenant() {
             <Box sx={style}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 20 }}>
                     <p style={{ textAlign: "center", fontWeight: "bold" }}>Suspend Tenant</p>
-                    <p style={{ textAlign: "center", width: "80%",lineHeight:1 }}>You are about to suspend the tenant.
+                    <p style={{ textAlign: "center", width: "80%" }}>You are about to suspend the tenant.
                         This will disable all users of the tenant, they cant
                         be reinstated until the tenant is reinstated
                         Do you want to proceed?</p>

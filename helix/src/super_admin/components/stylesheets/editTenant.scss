@@ -5,6 +5,7 @@
     // margin-right:10px;
     padding-right: 10px;
     padding-left: 10px;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
@@ -15,7 +16,7 @@
 
     p {
         color: #009A44;
-        line-height: 1;
+        // line-height: 1;
     }
 
 }
@@ -39,6 +40,7 @@
     margin-right: 10px;
     padding-right: 10px;
     padding-left: 10px;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: #009A44;
@@ -48,7 +50,7 @@
 
     p {
         color: #ffff;
-        line-height: 1;
+        // line-height: 1;
     }
 
 
@@ -61,6 +63,7 @@
     margin-right: 10px;
     padding-right: 10px;
     padding-left: 10px;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
@@ -70,7 +73,7 @@
 
     p {
         color: #009A44;
-        line-height: 1;
+        // line-height: 1;
     }
 
 
@@ -153,6 +156,7 @@
         background-color: #009A44;
         border-radius: 3px;
         align-items: center;
+        display: flex;
         justify-content: center;
         cursor: pointer;
     }
@@ -170,7 +174,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    line-height: 1;
+    // line-height: 1;
 
     input {
         padding: 10px;

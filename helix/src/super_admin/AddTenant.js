@@ -63,8 +63,8 @@ export default function AddTenant() {
             <div style={{ backgroundColor: "white", borderRadius: 3 }}>
                 <div style={{ borderBottomWidth: 1, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderStyle: "solid", borderColor: '#B2B4B2' }}>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <Tab label="Profile" {...a11yProps(0)} />
-                        <Tab disabled={!accessControlEnabled} label="Access Control" {...a11yProps(1)} />
+                        <Tab label={<span style={{fontFamily:"Gotham"}}>Profile</span>} {...a11yProps(0)} />
+                        <Tab disabled={!accessControlEnabled} label={<span style={{fontFamily:"Gotham"}}>Access Control</span>} {...a11yProps(1)} />
                     </Tabs>
                 </div>
 

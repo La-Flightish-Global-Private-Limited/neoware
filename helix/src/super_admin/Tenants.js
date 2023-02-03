@@ -8,12 +8,12 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Tenants() {
     const [tenants, setTenants] = useState([
-        // {
-        //   "tenanT_KEY": 0,
-        //   "tenanT_NM": "string",
-        //   "srvR_URL": "string",
-        //   "actV_FLG": true
-        // }
+        {
+          "tenanT_KEY": 0,
+          "tenanT_NM": "string",
+          "srvR_URL": "string",
+          "actV_FLG": true
+        }
       ])
     const tenantService = new TenantService()
     const navigate = useNavigate()
@@ -27,7 +27,7 @@ export default function Tenants() {
             </div>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 20, marginLeft: 10, marginRight: 10, marginBottom: 10, flexWrap: "wrap" }}>
                 <SearchBar style={{ flex: 1, maxWidth: 807,marginRight:10 }} />
-                <div onClick={()=>navigate('/tenants/add')} style={{ flex: 1, maxWidth: "124px", height: "38px", backgroundColor: "#009A44", borderRadius: 3, alignItems: "center", justifyContent: "center", cursor:"pointer" }}>
+                <div onClick={()=>navigate('/tenants/add')} style={{ flex: 1, maxWidth: "124px", height: "38px", backgroundColor: "#009A44", borderRadius: 3, alignItems: "center", justifyContent: "center", cursor:"pointer",display:"flex" }}>
                     <p style={{ color: "white", textAlign: "center",lineHeight:1 }}><span>+</span> Add new</p>
                 </div>
             </div>

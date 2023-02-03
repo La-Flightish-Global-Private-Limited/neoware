@@ -1,7 +1,12 @@
 ## Tasks
 
-### 25-01-2023 super admin landing page, list of tenant page and integrate with redux, axios and router
-### 27-01-2023 super admin tenant profile edit view and API dot net setup on local
+### 25-01-2023 super admin landing page, list of tenant page and integrate with redux, axios and router.
+### 27-01-2023 super admin tenant profile edit view and API  .Net setup on local.
+### 30-01-2023 super admin tenant access control and add new tenant with validations.
+### 31-01-2023 super admin responsive and API .Net setup on local
+### 01-02-2023 Leave
+### 02-02-2023 super admin font changed and tenant API connected
+### 03-02-2023 super admin font changed for safari browser support, review meeting and design alignment and docker setup
 
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
