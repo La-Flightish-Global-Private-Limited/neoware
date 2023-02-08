@@ -53,8 +53,28 @@ textarea:focus, input:focus{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 52px;
+    margin-right: 52px;
 }
 
+.mainContainer {
+    margin-left: 52px;
+    margin-right: 52px;
+}
+@media only screen and (max-width: 600px) {
+    .subContainer,.mainContainer{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .MuiBox-root{
+        width: 70% !important;
+
+        .suspnedDesc {
+            text-align: justify !important;
+            width: auto !important;
+        }
+    }
+}
 .right{
     display: flex;
     align-items: center;

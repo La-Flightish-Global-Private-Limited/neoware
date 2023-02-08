@@ -10,12 +10,15 @@ export default function Main(){
     return (
         <>
         <Header />
+        <div className="mainContainer">
         <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/tenants" element={<Tenants />} />
             <Route path="/tenants/add" element={<AddTenant />} />
             <Route path="/tenants/:id" element={<EditTenant />} />
         </Routes>
+        </div>
+        
         <Footer />
         </>
     )

@@ -7,6 +7,7 @@
 ### 01-02-2023 Leave
 ### 02-02-2023 super admin font changed and tenant API connected
 ### 03-02-2023 super admin font changed for safari browser support, review meeting and design alignment and docker setup
+### 06-02-2023 super admin API setup(docker with sql) and write service file and integration.
 
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

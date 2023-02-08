@@ -42,7 +42,7 @@ export default function AddTenant() {
         setValue(newValue);
     };
 
-    const onSaveProfile = () => {
+    const onSaveProfile = (data=undefined) => {
         setAccessControlEnabled(true)
         setAdd(false)
     }

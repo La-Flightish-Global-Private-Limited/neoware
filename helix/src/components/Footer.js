@@ -2,8 +2,8 @@ import './stylesheets/footer.scss'
 const Footer = () => {
     return (
         <div className="footer">
-            <p>© 2023 Bon Secours Mercy Health.</p>
-            <p>Powered by Helix</p>
+            <p className='left'>© 2023 Bon Secours Mercy Health.</p>
+            <p className='right'>Powered by Helix</p>
         </div>
     )
 }

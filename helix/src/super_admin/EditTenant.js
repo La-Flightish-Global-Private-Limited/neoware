@@ -5,9 +5,11 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProfileTab from './components/ProfileTab';
 import AccessControlTab from './components/AccessControlTab';
+import { TenantService } from '../services/TenantServices';
+import { useParams } from 'react-router-dom';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -40,6 +42,14 @@ export default function EditTenant() {
     const [value, setValue] = React.useState(0);
     const [suspend, setSuspend] = React.useState(false);
     const [open, setOpen] = React.useState(false);
+    const tenantService = new TenantService();
+    const {id} = useParams();
+    useEffect(()=>{
+        tenantService.getTenantsByID(id)
+            .then((res) => console.log(res.data))
+            .catch((error) => console.log(error))
+    },[])
+
     const style = {
         position: 'absolute',
         top: '50%',
@@ -56,6 +66,18 @@ export default function EditTenant() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const suspendTenant = () => {
+        tenantService.suspendTenant(id)
+            .then((res) => console.log(res.data))
+            .catch((error) => console.log(error))
+    }
+
+    const onSaveProfile = (data) => {
+        tenantService.editTenant(data)
+            .then((res) => console.log(res.data))
+            .catch((error) => console.log(error))
+    }
 
     const onYes = () => {
         onNo()
@@ -89,7 +111,7 @@ export default function EditTenant() {
                 </div>
 
                 <TabPanel value={value} index={0}>
-                    <ProfileTab disabled={suspend} />
+                    <ProfileTab disabled={suspend} onSave={onSaveProfile} />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <AccessControlTab />
@@ -106,7 +128,7 @@ export default function EditTenant() {
             <Box sx={style}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 20 }}>
                     <p style={{ textAlign: "center", fontWeight: "bold" }}>Suspend Tenant</p>
-                    <p style={{ textAlign: "center", width: "80%" }}>You are about to suspend the tenant.
+                    <p className='suspnedDesc' style={{ textAlign: "center", width: "80%" }}>You are about to suspend the tenant.
                         This will disable all users of the tenant, they cant
                         be reinstated until the tenant is reinstated
                         Do you want to proceed?</p>

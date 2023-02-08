@@ -26,7 +26,7 @@ export default function Header() {
     return (
         <div className="container">
             <div className="subContainer">
-                <p style={{ color: "#0033A0" }}>HELIX <span style={{ color: "#009A44" }}>SELF SERVICE PORTAL</span></p>
+                <p style={{ color: "#0033A0",fontWeight:"bold" }}>HELIX <span style={{ color: "#009A44" }}>SELF SERVICE PORTAL</span></p>
                 <div className="right">
                     <img className="icon" onClick={handleClick} src={userSwitch} />
                     <img className="icon" src={help} />
